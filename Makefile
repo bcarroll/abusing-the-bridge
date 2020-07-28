@@ -5,12 +5,12 @@ netboot : initrd2
 	grub-mknetdir --net-directory netboot
 	cp -v grub.cfg netboot/boot/grub/grub.cfg
 
-initrd2: core-login-key docker112
+initrd2: core-login-key docker113
 	find usr/ |cpio -o  -H newc -O initrd2
 
-docker112:
-	rm -rf usr/share/oem/docker-1.12.1.tgz
-	wget -P usr/share/oem/  http://get.docker.com/builds/Linux/x86_64/docker-1.12.1.tgz
+docker113:
+	rm -rf usr/share/oem/docker-1.13.1.tgz
+	wget -P usr/share/oem/  http://get.docker.com/builds/Linux/x86_64/docker-1.13.1.tgz
 
 core-login-key: swarm
 	rm -f core-login-key
